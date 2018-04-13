@@ -67,6 +67,10 @@ public class Parser {
                 return new CommandPwd(args);
             case "wc":
                 return new CommandWc(args);
+            case "cd":
+                return new CommandCd(args);
+            case "ls":
+                return new CommandLs(args);
             default:
                 args.add(0, commandName);
                 return new CommandExecute(args);

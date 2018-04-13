@@ -42,7 +42,7 @@ public class CommandWc extends Command {
             handleOneArgument(is, os);
         } else {
             for (String arg : getArgs()) {
-                handleOneArgument(new FileInputStream(new File(arg)), os);
+                handleOneArgument(new FileInputStream(new File(getCurrentDir() + '/' + arg)), os);
             }
         }
     }
