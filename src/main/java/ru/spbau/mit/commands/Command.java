@@ -3,6 +3,7 @@ package ru.spbau.mit.commands;
 import ru.spbau.mit.Environment;
 
 import java.io.*;
+import java.nio.file.Paths;
 import java.util.List;
 
 /**
@@ -11,6 +12,7 @@ import java.util.List;
  */
 public abstract class Command {
     private List<String> args;
+    private static String currentDir = System.getProperty("user.dir");
 
     /**
      * This constructor constructs class from list of arguments of this command
@@ -36,5 +38,13 @@ public abstract class Command {
      */
     public List<String> getArgs() {
         return args;
+    }
+
+    protected String getCurrentDir() {
+        return currentDir;
+    }
+
+    protected void setCurrentDir(String newDir) {
+        currentDir = newDir;
     }
 }
