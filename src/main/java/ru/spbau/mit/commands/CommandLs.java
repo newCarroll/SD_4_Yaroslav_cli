@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * The CommandLs class is for printing content of (current) directory or just print filename 
- * (if filename was transferred)
+ * The CommandLs class is for printing content of (current) directory or just
+ * name of file if file is given
  */
 public class CommandLs extends Command{
     public CommandLs(List<String> args){
@@ -40,7 +40,11 @@ public class CommandLs extends Command{
         if (getArgs().size() == 0){
             handleOneArgument(new File(getCurrentDir() + "/"), os);
         } else{
-            handleOneArgument(new File(getCurrentDir() + "/" + getArgs().get(0)), os);
-        }
+            try{
+            	handleOneArgument(new File(getCurrentDir() + "/" + getArgs().get(0)), os);        
+	    } catch (Exception e){
+		System.err.print("There is no file\n");
+            }
+	}
     }
 }
