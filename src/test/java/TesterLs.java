@@ -7,6 +7,8 @@ import ru.spbau.mit.commands.PipeCommand;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.io.PrintStream;
@@ -33,7 +35,8 @@ public class TesterLs{
     public void testEmpty() throws IOException  {
         ByteArrayOutputStream b = new ByteArrayOutputStream();
         System.setOut(new PrintStream(b, true));
-        List<String> tokens = lexer.parseWords("cd src/main/java| ls ");
+        List<String> tokens = lexer.parseWords("cd src" + File.separator +
+                        "main" + File.separator + "java| ls ");
         List<String> tokensAfterSubstitution = lexer.substituteVariables(tokens, environment);
         List<Command> commands = parser.parseCommands(tokensAfterSubstitution);
         PipeCommand pipeCommand = new PipeCommand(commands);
@@ -46,7 +49,7 @@ public class TesterLs{
     public void testLs() throws IOException {
         ByteArrayOutputStream b = new ByteArrayOutputStream();
         System.setOut(new PrintStream(b, true));
-        List<String> tokens = lexer.parseWords("ls ru/spbau");
+        List<String> tokens = lexer.parseWords("ls ru" + File.separator + "spbau");
         List<String> tokensAfterSubstitution = lexer.substituteVariables(tokens, environment);
         List<Command> commands = parser.parseCommands(tokensAfterSubstitution);
         PipeCommand pipeCommand = new PipeCommand(commands);

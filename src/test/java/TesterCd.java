@@ -6,11 +6,13 @@ import ru.spbau.mit.commands.Command;
 import ru.spbau.mit.commands.PipeCommand;
 
 import static org.junit.Assert.assertEquals;
+
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 
-public class TesterCd{
+public class TesterCd {
     private Lexer lexer = new Lexer();
     private Parser parser = new Parser();
     private Environment environment = new Environment();
@@ -23,7 +25,7 @@ public class TesterCd{
         List<Command> commands = parser.parseCommands(tokensAfterSubstitution);
         PipeCommand pipeCommand = new PipeCommand(commands);
         pipeCommand.run(System.in, System.out, environment);
-        assertEquals(prevFolder + "/src", System.getProperty("user.dir"));
+        assertEquals(prevFolder + File.separator + "src", System.getProperty("user.dir"));
     }
 
     @Test(expected = IOException.class)

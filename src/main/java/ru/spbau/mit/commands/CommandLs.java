@@ -19,7 +19,7 @@ public class CommandLs extends Command {
     /**
      * This method executes command for one file or input stream
      */
-    private void handleOneArgument(File dir, OutputStream os) throws IOException{
+    private void handleOneArgument(File dir, OutputStream os) throws IOException {
         boolean exists = dir.exists();
         if (!exists) {
             throw new IOException(dir.getName() + ": No such file or directory");
@@ -40,11 +40,11 @@ public class CommandLs extends Command {
     public void run(InputStream is, OutputStream os, Environment environment)
             throws IOException {
         if (getArgs().size() == 0) {
-            handleOneArgument(new File(getCurrentDir() + "/"), os);
+            handleOneArgument(new File(getCurrentDir() + File.separator), os);
         } else if (getArgs().size() > 1) {
             throw new IOException("ls: too many argumnts");
         } else {
-                handleOneArgument(new File(getCurrentDir() + "/" + getArgs().get(0)), os);
+                handleOneArgument(new File(getCurrentDir() + File.separator + getArgs().get(0)), os);
         }
     }
 }
