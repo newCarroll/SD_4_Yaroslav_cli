@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * The CommandCd class is command that change current directory
+ * The CommandCd class is for changing current directory
  */
 public class CommandCd extends Command {
     public CommandCd(List<String> args) {
