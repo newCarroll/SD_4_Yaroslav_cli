@@ -6,7 +6,6 @@ import ru.spbau.mit.commands.Command;
 import ru.spbau.mit.commands.PipeCommand;
 
 import static org.junit.Assert.assertEquals;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.List;

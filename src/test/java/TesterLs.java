@@ -7,14 +7,12 @@ import ru.spbau.mit.commands.PipeCommand;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.io.PrintStream;
 import java.io.ByteArrayOutputStream;
 import java.util.Arrays;
-
 
 public class TesterLs{
     private Lexer lexer = new Lexer();

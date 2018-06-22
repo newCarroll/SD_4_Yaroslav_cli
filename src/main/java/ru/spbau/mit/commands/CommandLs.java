@@ -44,7 +44,7 @@ public class CommandLs extends Command {
         } else if (getArgs().size() > 1) {
             throw new IOException("ls: too many argumnts");
         } else {
-                handleOneArgument(new File(getCurrentDir() + File.separator + getArgs().get(0)), os);
+            handleOneArgument(new File(getCurrentDir() + File.separator + getArgs().get(0)), os);
         }
     }
 }
