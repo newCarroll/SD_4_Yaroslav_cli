@@ -22,6 +22,7 @@ public final class Shell {
         Lexer lexer = new Lexer();
         Parser parser = new Parser();
         Environment environment = new Environment();
+        System.out.print("> ");
         String lastLine = in.nextLine();
         while (!lastLine.equals("exit")) {
             try {
@@ -33,6 +34,7 @@ public final class Shell {
             } catch (IOException exception) {
                 System.out.println("Error: " + exception.getMessage());
             }
+            System.out.print("> ");
             lastLine = in.nextLine();
         }
     }

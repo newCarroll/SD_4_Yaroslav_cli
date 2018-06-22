@@ -41,7 +41,7 @@ public class CommandCat extends Command {
     public void run(InputStream is, OutputStream os, Environment environment)
             throws IOException {
         if (getArgs().size() == 0) {
-            handleOneArgument(is, os);
+
         } else {
             for (String arg : getArgs()) {
                 handleOneArgument(new FileInputStream(new File(getCurrentDir() + '/' + arg)), os);
