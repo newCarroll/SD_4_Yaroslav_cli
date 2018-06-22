@@ -45,6 +45,8 @@ public abstract class Command {
     }
 
     protected void setCurrentDir(String newDir) {
-        currentDir = newDir;
+        File file = new File(newDir);
+        currentDir = file.getAbsolutePath();
+        System.setProperty("user.dir", currentDir);
     }
 }
